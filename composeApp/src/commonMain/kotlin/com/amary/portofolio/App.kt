@@ -231,10 +231,7 @@ internal fun App() = AppTheme {
                         modifier = Modifier
                             .fillMaxSize()
                             .windowInsetsPadding(WindowInsets.safeDrawing)
-                            .padding(
-                                vertical = 16.dp,
-                                horizontal = 32.dp,
-                            ),
+                            .padding(16.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Row(
@@ -289,7 +286,10 @@ internal fun App() = AppTheme {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
-                            Column {
+                            Column (
+                                modifier = Modifier
+                                    .weight(2f)
+                            ) {
                                 Text(
                                     text = "I'm Taufik Amaryansyah",
                                     fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
@@ -298,7 +298,7 @@ internal fun App() = AppTheme {
                                 Text(
                                     text = "Mobile Developer from Subang, ID.\nCurrently working at Kreditplus.",
                                     fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
-                                    style = MaterialTheme.typography.titleMedium
+                                    style = MaterialTheme.typography.bodyMedium
                                 )
                                 Row {
                                     Button(
