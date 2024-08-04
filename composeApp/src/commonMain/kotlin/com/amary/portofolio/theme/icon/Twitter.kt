@@ -1,0 +1,151 @@
+package com.amary.portofolio.theme.icon
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathFillType.Companion.NonZero
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.StrokeCap.Companion.Butt
+import androidx.compose.ui.graphics.StrokeJoin.Companion.Miter
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.ImageVector.Builder
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.unit.dp
+import com.amary.portofolio.theme.Icon
+
+val Icon.Twitter: ImageVector
+    get() {
+        if (_twitter != null) {
+            return _twitter!!
+        }
+        _twitter = Builder(name = "Twitter", defaultWidth = 15.0.dp, defaultHeight = 15.0.dp,
+                viewportWidth = 15.0f, viewportHeight = 15.0f).apply {
+            path(fill = SolidColor(Color(0xFF1D1929)), stroke = null, strokeLineWidth = 0.0f,
+                    strokeLineCap = Butt, strokeLineJoin = Miter, strokeLineMiter = 4.0f,
+                    pathFillType = NonZero) {
+                moveTo(14.4784f, 1.5f)
+                lineTo(14.9773f, 1.4669f)
+                curveTo(14.964f, 1.2664f, 14.8319f, 1.0932f, 14.6419f, 1.0275f)
+                curveTo(14.452f, 0.9618f, 14.2411f, 1.0162f, 14.1067f, 1.1656f)
+                lineTo(14.4784f, 1.5f)
+                close()
+                moveTo(13.9799f, 4.4589f)
+                curveTo(13.9799f, 4.1828f, 13.7561f, 3.9589f, 13.4799f, 3.9589f)
+                curveTo(13.2038f, 3.9589f, 12.9799f, 4.1828f, 12.9799f, 4.4589f)
+                horizontalLineTo(13.9799f)
+                close()
+                moveTo(7.4892f, 4.5411f)
+                horizontalLineTo(6.9892f)
+                verticalLineTo(4.5411f)
+                lineTo(7.4892f, 4.5411f)
+                close()
+                moveTo(7.4892f, 5.5f)
+                lineTo(7.9892f, 5.5f)
+                verticalLineTo(5.5f)
+                lineTo(7.4892f, 5.5f)
+                close()
+                moveTo(0.5f, 12.5f)
+                verticalLineTo(12.0f)
+                curveTo(0.2797f, 12.0f, 0.0854f, 12.1441f, 0.0215f, 12.3549f)
+                curveTo(-0.0424f, 12.5657f, 0.0392f, 12.7935f, 0.2224f, 12.9158f)
+                lineTo(0.5f, 12.5f)
+                close()
+                moveTo(1.4985f, 1.5f)
+                lineTo(1.9667f, 1.3247f)
+                curveTo(1.8969f, 1.1383f, 1.7233f, 1.0111f, 1.5246f, 1.0007f)
+                curveTo(1.3259f, 0.9903f, 1.14f, 1.0986f, 1.0511f, 1.2767f)
+                lineTo(1.4985f, 1.5f)
+                close()
+                moveTo(5.4923f, 10.5f)
+                lineTo(5.8461f, 10.8533f)
+                curveTo(5.9685f, 10.7307f, 6.0187f, 10.5536f, 5.9789f, 10.385f)
+                curveTo(5.9391f, 10.2165f, 5.8149f, 10.0806f, 5.6506f, 10.0257f)
+                lineTo(5.4923f, 10.5f)
+                close()
+                moveTo(12.7161f, 2.4734f)
+                lineTo(12.3452f, 2.8087f)
+                lineTo(12.5253f, 3.008f)
+                lineTo(12.7909f, 2.9677f)
+                lineTo(12.7161f, 2.4734f)
+                close()
+                moveTo(13.9795f, 1.5331f)
+                curveTo(14.0311f, 2.3109f, 13.9833f, 2.7831f, 13.8573f, 3.1386f)
+                curveTo(13.7349f, 3.4835f, 13.5213f, 3.7679f, 13.134f, 4.139f)
+                lineTo(13.8259f, 4.861f)
+                curveTo(14.2637f, 4.4415f, 14.6025f, 4.0288f, 14.7997f, 3.4729f)
+                curveTo(14.9932f, 2.9274f, 15.0322f, 2.295f, 14.9773f, 1.4669f)
+                lineTo(13.9795f, 1.5331f)
+                close()
+                moveTo(13.9799f, 5.1875f)
+                verticalLineTo(4.4589f)
+                horizontalLineTo(12.9799f)
+                verticalLineTo(5.1875f)
+                horizontalLineTo(13.9799f)
+                close()
+                moveTo(6.9892f, 4.5411f)
+                lineTo(6.9892f, 5.5f)
+                lineTo(7.9892f, 5.5f)
+                lineTo(7.9892f, 4.5411f)
+                lineTo(6.9892f, 4.5411f)
+                close()
+                moveTo(6.9892f, 5.5f)
+                lineTo(6.9892f, 6.0f)
+                lineTo(7.9892f, 6.0f)
+                lineTo(7.9892f, 5.5f)
+                lineTo(6.9892f, 5.5f)
+                close()
+                moveTo(10.5256f, 1.0f)
+                curveTo(8.5718f, 1.0f, 6.9892f, 2.5861f, 6.9892f, 4.5411f)
+                horizontalLineTo(7.9892f)
+                curveTo(7.9892f, 3.137f, 9.1255f, 2.0f, 10.5256f, 2.0f)
+                verticalLineTo(1.0f)
+                close()
+                moveTo(12.9799f, 5.1875f)
+                curveTo(12.9799f, 9.5029f, 9.4872f, 13.0f, 5.1803f, 13.0f)
+                verticalLineTo(14.0f)
+                curveTo(10.0409f, 14.0f, 13.9799f, 10.0538f, 13.9799f, 5.1875f)
+                horizontalLineTo(12.9799f)
+                close()
+                moveTo(1.0302f, 1.6753f)
+                curveTo(1.5736f, 3.1266f, 3.6143f, 6.0f, 7.4892f, 6.0f)
+                verticalLineTo(5.0f)
+                curveTo(4.1752f, 5.0f, 2.4218f, 2.5401f, 1.9667f, 1.3247f)
+                lineTo(1.0302f, 1.6753f)
+                close()
+                moveTo(1.0511f, 1.2767f)
+                curveTo(0.0044f, 3.3734f, -0.1569f, 5.4069f, 0.6039f, 7.1386f)
+                curveTo(1.3629f, 8.8663f, 2.996f, 10.1937f, 5.334f, 10.9743f)
+                lineTo(5.6506f, 10.0257f)
+                curveTo(3.4955f, 9.3063f, 2.1333f, 8.1337f, 1.5194f, 6.7364f)
+                curveTo(0.9073f, 5.3431f, 0.9956f, 3.6266f, 1.9458f, 1.7233f)
+                lineTo(1.0511f, 1.2767f)
+                close()
+                moveTo(5.1385f, 10.1467f)
+                curveTo(4.5363f, 10.7498f, 2.7261f, 12.0f, 0.5f, 12.0f)
+                verticalLineTo(13.0f)
+                curveTo(3.0665f, 13.0f, 5.117f, 11.5836f, 5.8461f, 10.8533f)
+                lineTo(5.1385f, 10.1467f)
+                close()
+                moveTo(13.0869f, 2.138f)
+                curveTo(12.4557f, 1.4399f, 11.5417f, 1.0f, 10.5256f, 1.0f)
+                verticalLineTo(2.0f)
+                curveTo(11.247f, 2.0f, 11.8953f, 2.3112f, 12.3452f, 2.8087f)
+                lineTo(13.0869f, 2.138f)
+                close()
+                moveTo(12.7909f, 2.9677f)
+                curveTo(13.5515f, 2.8526f, 14.2935f, 2.4532f, 14.8501f, 1.8344f)
+                lineTo(14.1067f, 1.1656f)
+                curveTo(13.6988f, 1.619f, 13.1639f, 1.8999f, 12.6412f, 1.979f)
+                lineTo(12.7909f, 2.9677f)
+                close()
+                moveTo(0.2224f, 12.9158f)
+                curveTo(1.863f, 14.0113f, 3.5834f, 14.0f, 5.1803f, 14.0f)
+                verticalLineTo(13.0f)
+                curveTo(3.5503f, 13.0f, 2.1323f, 12.9887f, 0.7776f, 12.0842f)
+                lineTo(0.2224f, 12.9158f)
+                close()
+            }
+        }
+        .build()
+        return _twitter!!
+    }
+
+private var _twitter: ImageVector? = null
