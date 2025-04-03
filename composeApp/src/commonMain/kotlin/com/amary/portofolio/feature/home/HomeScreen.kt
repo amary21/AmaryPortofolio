@@ -5,12 +5,17 @@ import amaryportofolio.composeapp.generated.resources.Inter_Regular
 import amaryportofolio.composeapp.generated.resources.Inter_SemiBold
 import amaryportofolio.composeapp.generated.resources.Res
 import amaryportofolio.composeapp.generated.resources.ic_cyclone
+import amaryportofolio.composeapp.generated.resources.img_dsl
+import amaryportofolio.composeapp.generated.resources.img_flutter
+import amaryportofolio.composeapp.generated.resources.img_kmp
 import amaryportofolio.composeapp.generated.resources.img_kreditplus
 import amaryportofolio.composeapp.generated.resources.img_profile
+import amaryportofolio.composeapp.generated.resources.img_sally
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,11 +26,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForward
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -49,16 +56,21 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.amary.portofolio.theme.Icon
+import com.amary.portofolio.theme.icon.AppStore
 import com.amary.portofolio.theme.icon.Call
 import com.amary.portofolio.theme.icon.Circle
 import com.amary.portofolio.theme.icon.Email
+import com.amary.portofolio.theme.icon.PlayStore
 import kotlinx.coroutines.isActive
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.vectorResource
 
 @Composable
-internal fun HomeScreen() {
+internal fun HomeScreen(
+    onExperienceClick: () -> Unit,
+    onSkillClick: () -> Unit,
+) {
     val rotate = remember { Animatable(0f) }
     val target = 360f
     val uriHandler = LocalUriHandler.current
@@ -239,10 +251,7 @@ internal fun HomeScreen() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(
-                        horizontal = 10.dp,
-                        vertical = 20.dp
-                    ),
+                    .padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -256,7 +265,7 @@ internal fun HomeScreen() {
                         tint = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                     Text(
-                        text = "Projects",
+                        text = "Application",
                         fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primaryContainer,
@@ -269,7 +278,7 @@ internal fun HomeScreen() {
                     colors = ButtonDefaults.elevatedButtonColors().copy(
                         containerColor = MaterialTheme.colorScheme.secondaryContainer,
                     ),
-                    onClick = {}
+                    onClick = onExperienceClick
                 ) {
                     Text(
                         modifier = Modifier.padding(horizontal = 4.dp),
@@ -286,10 +295,7 @@ internal fun HomeScreen() {
             }
             Card(
                 modifier = Modifier
-                    .padding(
-                        horizontal = 16.dp,
-                        vertical = 4.dp
-                    )
+                    .padding(horizontal = 16.dp)
                     .fillMaxWidth(),
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = 2.dp,
@@ -307,7 +313,7 @@ internal fun HomeScreen() {
                 ) {
                     Image(
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(60.dp)
                             .clip(CircleShape),
                         painter = painterResource(Res.drawable.img_kreditplus),
                         contentDescription = "",
@@ -329,20 +335,136 @@ internal fun HomeScreen() {
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primaryContainer
                         )
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 6.dp)
+                                .height(20.dp),
+                        ) {
+                            Image(
+                                modifier = Modifier.clickable {
+                                    uriHandler.openUri("https://play.google.com/store/apps/details?id=com.kreditplus.kpm.android&pcampaignid=web_share")
+                                },
+                                imageVector = Icon.PlayStore,
+                                contentDescription = "",
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Image(
+                                modifier = Modifier.clickable {
+                                    uriHandler.openUri("https://apps.apple.com/id/app/kreditplus-mobile/id1268717694?l=id")
+                                },
+                                imageVector = Icon.AppStore,
+                                contentDescription = "",
+                            )
+                        }
                     }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Card(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 2.dp,
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                ),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .size(60.dp)
+                            .clip(CircleShape),
+                        painter = painterResource(Res.drawable.img_sally),
+                        contentDescription = "",
+                    )
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .weight(1f)
+                    ) {
+                        Text(
+                            text = "Kreditplus Sally",
+                            fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                        Text(
+                            text = "internal application from kreditlpus mobile",
+                            fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.primaryContainer
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Card(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.onSecondary,
+            ),
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                        modifier = Modifier
+                            .padding(end = 8.dp)
+                            .size(8.dp),
+                        imageVector = Icon.Circle,
+                        contentDescription = "",
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                    Text(
+                        text = "Project",
+                        fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                    )
+                }
+                ElevatedButton(
+                    modifier = Modifier.height(32.dp),
+                    shape = RoundedCornerShape(6.dp),
+                    contentPadding = PaddingValues(4.dp),
+                    colors = ButtonDefaults.elevatedButtonColors().copy(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                    onClick = onExperienceClick
+                ) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 4.dp),
+                        text = "View All",
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowForward,
                         contentDescription = "",
                         tint = MaterialTheme.colorScheme.primaryContainer
                     )
                 }
             }
+
             Card(
                 modifier = Modifier
-                    .padding(
-                        horizontal = 16.dp,
-                        vertical = 4.dp
-                    )
+                    .padding(horizontal = 16.dp)
                     .fillMaxWidth(),
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = 2.dp,
@@ -362,7 +484,7 @@ internal fun HomeScreen() {
                         modifier = Modifier
                             .size(48.dp)
                             .clip(CircleShape),
-                        painter = painterResource(Res.drawable.img_kreditplus),
+                        painter = painterResource(Res.drawable.img_kmp),
                         contentDescription = "",
                     )
                     Column(
@@ -371,76 +493,200 @@ internal fun HomeScreen() {
                             .weight(1f)
                     ) {
                         Text(
-                            text = "Kreditplus Mobile",
+                            text = "Kotlin Multiplatform Migration",
                             fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.secondary
                         )
                         Text(
-                            text = "consumer financing service app",
+                            text = "Improving efficiency with Kotlin Multiplatform.",
                             fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primaryContainer
                         )
                     }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Card(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 2.dp,
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                ),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(CircleShape),
+                        painter = painterResource(Res.drawable.img_flutter),
+                        contentDescription = "",
+                    )
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .weight(1f)
+                    ) {
+                        Text(
+                            text = "Flutter Migration",
+                            fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                        Text(
+                            text = "Accelerating development with Flutter for Mobile",
+                            fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.primaryContainer
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Card(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 2.dp,
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                ),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(CircleShape),
+                        painter = painterResource(Res.drawable.img_dsl),
+                        contentScale = ContentScale.Crop,
+                        contentDescription = "",
+                    )
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .weight(1f)
+                    ) {
+                        Text(
+                            text = "DSL Jetpack Compose",
+                            fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                        Text(
+                            text = "Simplifying UI development using Jetpack Compose.",
+                            fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.primaryContainer
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Card(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.onSecondary,
+            ),
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                        modifier = Modifier
+                            .padding(end = 8.dp)
+                            .size(8.dp),
+                        imageVector = Icon.Circle,
+                        contentDescription = "",
+                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                    Text(
+                        text = "Skill",
+                        fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                    )
+                }
+                ElevatedButton(
+                    modifier = Modifier.height(32.dp),
+                    shape = RoundedCornerShape(6.dp),
+                    contentPadding = PaddingValues(4.dp),
+                    colors = ButtonDefaults.elevatedButtonColors().copy(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                    onClick = onSkillClick
+                ) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 4.dp),
+                        text = "View All",
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowForward,
                         contentDescription = "",
                         tint = MaterialTheme.colorScheme.primaryContainer
                     )
                 }
             }
-            Card(
+
+            val itemsData = listOf(
+                "Kotlin", "MVVM", "Flutter", "Kotlin Multiplatform", "Clean Architecture"
+            )
+            LazyVerticalGrid(
                 modifier = Modifier
-                    .padding(
-                        horizontal = 16.dp,
-                        vertical = 4.dp
-                    )
-                    .fillMaxWidth(),
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 2.dp,
-                ),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                ),
+                    .padding(horizontal = 16.dp)
+                    .height(100.dp),
+                columns = GridCells.Adaptive(minSize = 150.dp),
+                contentPadding = PaddingValues(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .size(48.dp)
-                            .clip(CircleShape),
-                        painter = painterResource(Res.drawable.img_kreditplus),
-                        contentDescription = "",
-                    )
-                    Column(
-                        modifier = Modifier
-                            .padding(start = 16.dp)
-                            .weight(1f)
-                    ) {
-                        Text(
-                            text = "Kreditplus Mobile",
-                            fontFamily = FontFamily(Font(Res.font.Inter_SemiBold)),
-                            style = MaterialTheme.typography.titleSmall,
-                            color = MaterialTheme.colorScheme.secondary
+                items(itemsData) { item ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .size(8.dp),
+                            imageVector = Icon.Circle,
+                            contentDescription = "",
+                            tint = MaterialTheme.colorScheme.onPrimaryContainer
                         )
                         Text(
-                            text = "consumer financing service app",
+                            text = item,
                             fontFamily = FontFamily(Font(Res.font.Inter_Medium)),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.primaryContainer
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.secondary,
                         )
                     }
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        contentDescription = "",
-                        tint = MaterialTheme.colorScheme.primaryContainer
-                    )
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))

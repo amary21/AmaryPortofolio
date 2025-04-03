@@ -9,6 +9,7 @@ import amaryportofolio.composeapp.generated.resources.img_kmp
 import amaryportofolio.composeapp.generated.resources.img_kreditplus
 import amaryportofolio.composeapp.generated.resources.img_sally
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,9 +18,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -30,15 +30,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.amary.portofolio.theme.Icon
+import com.amary.portofolio.theme.icon.AppStore
 import com.amary.portofolio.theme.icon.Circle
+import com.amary.portofolio.theme.icon.PlayStore
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
 internal fun ExperienceScreen() {
+    val uriHandler = LocalUriHandler.current
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
@@ -540,7 +544,7 @@ internal fun ExperienceScreen() {
                 ) {
                     Image(
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(60.dp)
                             .clip(CircleShape),
                         painter = painterResource(Res.drawable.img_kreditplus),
                         contentDescription = "",
@@ -562,12 +566,28 @@ internal fun ExperienceScreen() {
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primaryContainer
                         )
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 6.dp)
+                                .height(20.dp),
+                        ) {
+                            Image(
+                                modifier = Modifier.clickable {
+                                    uriHandler.openUri("https://play.google.com/store/apps/details?id=com.kreditplus.kpm.android&pcampaignid=web_share")
+                                },
+                                imageVector = Icon.PlayStore,
+                                contentDescription = "",
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Image(
+                                modifier = Modifier.clickable {
+                                    uriHandler.openUri("https://apps.apple.com/id/app/kreditplus-mobile/id1268717694?l=id")
+                                },
+                                imageVector = Icon.AppStore,
+                                contentDescription = "",
+                            )
+                        }
                     }
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        contentDescription = "",
-                        tint = MaterialTheme.colorScheme.primaryContainer
-                    )
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -591,7 +611,7 @@ internal fun ExperienceScreen() {
                 ) {
                     Image(
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(60.dp)
                             .clip(CircleShape),
                         painter = painterResource(Res.drawable.img_sally),
                         contentDescription = "",
@@ -614,11 +634,6 @@ internal fun ExperienceScreen() {
                             color = MaterialTheme.colorScheme.primaryContainer
                         )
                     }
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
-                        contentDescription = "",
-                        tint = MaterialTheme.colorScheme.primaryContainer
-                    )
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
