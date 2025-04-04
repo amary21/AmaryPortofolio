@@ -213,6 +213,9 @@ internal fun SkillScreen() {
                                     color = MaterialTheme.colorScheme.secondary
                                 )
                                 Icon(
+                                    modifier = Modifier.clickable {
+                                        uriHandler.openUri("https://www.dicoding.com/certificates/NVP7K14NOZR0")
+                                    },
                                     imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                                     contentDescription = "",
                                     tint = MaterialTheme.colorScheme.primaryContainer
@@ -236,6 +239,9 @@ internal fun SkillScreen() {
                                     color = MaterialTheme.colorScheme.secondary
                                 )
                                 Icon(
+                                    modifier = Modifier.clickable {
+                                        uriHandler.openUri("https://www.dicoding.com/certificates/NVP7KK7VWZR0")
+                                    },
                                     imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                                     contentDescription = "",
                                     tint = MaterialTheme.colorScheme.primaryContainer
