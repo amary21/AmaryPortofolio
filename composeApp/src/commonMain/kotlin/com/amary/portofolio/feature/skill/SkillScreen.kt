@@ -265,6 +265,9 @@ internal fun SkillScreen() {
                                     color = MaterialTheme.colorScheme.secondary
                                 )
                                 Icon(
+                                    modifier = Modifier.clickable {
+                                        uriHandler.openUri("https://www.dicoding.com/certificates/4EXGVGQM1XRL")
+                                    },
                                     imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                                     contentDescription = "",
                                     tint = MaterialTheme.colorScheme.primaryContainer
