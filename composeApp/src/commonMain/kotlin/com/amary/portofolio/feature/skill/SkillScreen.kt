@@ -49,7 +49,8 @@ import org.jetbrains.compose.resources.painterResource
 internal fun SkillScreen() {
     val itemsData = listOf(
         "Kotlin", "MVVM", "Compose", "Coroutine", "Room",
-        "Dexguard", "Dexguard", "Dexguard", "Dexguard", "New Relic", "Moengage",
+        "Dexguard", "Hilt", "Koin", "New Relic", "Moengage",
+        "Firebase", "Crashlytics", "Git", "GitHub",
         "Sentry", "Flutter", "Kotlin Multiplatform", "DSL", "Clean Architecture"
     )
     val visibleDicoding = remember { mutableStateOf(false) }
