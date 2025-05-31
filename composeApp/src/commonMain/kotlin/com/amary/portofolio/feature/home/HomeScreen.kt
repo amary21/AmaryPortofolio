@@ -402,6 +402,19 @@ internal fun HomeScreen(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primaryContainer
                         )
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 6.dp)
+                                .height(20.dp),
+                        ) {
+                            Image(
+                                modifier = Modifier.clickable {
+                                    uriHandler.openUri("https://play.google.com/store/apps/details?id=com.kreditplus.sally")
+                                },
+                                imageVector = Icon.PlayStore,
+                                contentDescription = "",
+                            )
+                        }
                     }
                 }
             }
